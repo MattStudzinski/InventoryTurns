@@ -42,6 +42,7 @@ font-size: 17px;
 
 export const GreenParItem = styled.div`
 padding: 5px;
+width: 50px;
 color: green;
 @media (max-width: 500px){
     width: 1px;
@@ -87,6 +88,7 @@ color: green;
 
 export const OrangeParItem = styled.div`
 padding: 5px;
+width: 50px;
 color: orange;
 @media (max-width: 500px){
     width: 1px;
