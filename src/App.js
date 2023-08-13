@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Results from './Componets/Results';
 import './App.css';
+import Login from './Componets/Auth/Login';
+import AccountState from './Componets/Context/AccountState';
 
 
 
@@ -10,9 +12,12 @@ import './App.css';
 function App() {
   return (
     <>
+    <AccountState>
     <Routes>
-      <Route path = "/" element={<Results />}/>
+      <Route path= "/InventorySorter" element={<Results />}/>
+      <Route path='/' element={<Login/>}/>
     </Routes>
+    </AccountState>
     </>
   );
 }
