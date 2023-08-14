@@ -1,43 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AccountContext from '../Context/AccountContext';
 import Header from '../Header';
 
-
-const Login = () => {
-
+const SignUp = () => {
 
 const [username, setUsername] = useState("")
 const [password, setPassword] = useState("")
 
-const {authenticate, getSession} = useContext(AccountContext)
+const {signUp} = useContext(AccountContext)
 
-
-useEffect(() => {
-    getSession()
-    .then(session => {
-        console.log(session)
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}, [])
-
-const handleLogin = (event) => {
-    event.preventDefault()
-    authenticate(username,password)
+const handleSignUp = (e) => {
+    e.preventDefault()
+    signUp(username, password)
     .then(data => {
-        console.log("logged in siccessfully", data)
+        console.log("registered", data)
     })
     .catch(err => {
-        console.log("failed login", err.message)
+        console.log("failed to register", err)
     })
 }
 
 
     return (
-
         <>
         <Header />
         <form>
@@ -47,12 +31,10 @@ const handleLogin = (event) => {
             <label htmlFor='password'>Password</label>
             <input value={password} onChange={(e) => setPassword(e.target.value)} type='text' placeholder='Password'></input>
 
-            <button type='submit' onClick={handleLogin}>Login</button>
+            <button type='submit' onClick={handleSignUp}></button>
         </form>  
-    <Link to='/AddUser'>Admin</Link>
         </>
     );
 };
 
-
-export default Login;
+export default SignUp;

@@ -6,23 +6,54 @@ import { AuthenticationDetails, CognitoUser } from "amazon-cognito-identity-js";
 const AccountState = (props) => {
 
 
+
+    const logout = async () => {
+        return await new Promise((resolve, reject) => {
+            const user = UserPool.getCurrentUser()
+            if(user) {
+                user.signOut()
+                resolve(user)
+            } else {
+                reject()
+            }
+        })
+        
+    }
+
     const getSession = async () => {
         return await new Promise((resolve, reject) => {
             const user = UserPool.getCurrentUser()
-            if (user){
+            if(user) {
                 user.getSession(async (err, session) => {
                     if (err) {
                         reject(err)
                     } else {
-                        resolve (session)
+                        resolve(session)
                     }
                 })
             } else {
-                reject()}
+                reject()
+            }
         })
     }
 
-    const authenticate = async (Username, Password) => {
+    const signUp = async (username, password) => {
+        return await new Promise ((resolve, reject) => {
+            
+
+            UserPool.signUp(username, password, [], null, (err,data) => {
+                if(err){
+                    console.log("failed to register", err.message)
+                    reject()
+                } else {
+                    console.log("registered successfully", data)
+                    resolve()
+                }
+            })
+        })
+    }
+
+    const authenticate = async (Username,Password) => {
         return await new Promise((resolve, reject) => {
             const user = new CognitoUser({
                 Username,
@@ -36,27 +67,29 @@ const AccountState = (props) => {
 
             user.authenticateUser(authDetails, {
                 onSuccess: (data) => {
-                    console.log("Logged In Success", data)
+                    console.log("login successful", data)
                     resolve(data)
                 },
                 onFailure: (err) => {
-                    console.log("Failure", err.message)
+                    console.log("login fialed", err.message)
                     reject(err)
                 },
                 newPasswordRequired: (data) => {
-                    console.log("new Password Required", data)
+                    console.log("new password required", data)
                     resolve(data)
                 }
             })
         })
     }
-    
 
     return (
-        <AccountContext.Provider value={{authenticate, getSession}}>
+        <AccountContext.Provider value={{signUp, authenticate, getSession, logout}}>
             {props.children}
         </AccountContext.Provider>
     )
 }
 
 export default AccountState
+
+
+// authenticate, getSession

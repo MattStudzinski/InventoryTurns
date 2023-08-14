@@ -5,10 +5,7 @@ export const TitleContainer = styled.div `
 display: flex;
 margin-top: auto;
 padding: 10px 5px 10px 30px;
-box-shadow: 2px 5px 10px 10px rgba(0, 0, 0, .3);
-background: #606c88;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+height: 60px;
 `
 
 export const Title = styled.p`
@@ -22,4 +19,11 @@ margin-left: auto;
 margin-top: 0;
 padding-right: 20px;
 font-size: 15px;
+`
+
+export const Logout = styled.button`
+display: flex;
+align-self:flex-end;
+margin-right: 2%;
+margin-bottom: 3%;
 `
