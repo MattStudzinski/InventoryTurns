@@ -26,6 +26,11 @@ const Header = () => {
         })
     }
 
+    const admin = () => {
+        navigate("/AddUser")
+    }
+    
+
     
     return (
         <HeaderContainer>
@@ -37,9 +42,10 @@ const Header = () => {
         <Company>
             The Everett Clinic
         </Company>
-        
+        <button onClick={admin}></button>
         </TitleContainer>
         <Logout onClick={logOut}>Logout</Logout>
+        
         </HeaderContainer>
     );
 };
