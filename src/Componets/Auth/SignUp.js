@@ -24,6 +24,7 @@ const handleSignUp = (e) => {
     return (
         <>
         <Header />
+        <h1>ooooogggggaaaa</h1>
         <form>
             <label htmlFor='name'>name</label>
             <input value={username} onChange={(e) => setUsername(e.target.value)} type='text' placeholder='Username'></input>

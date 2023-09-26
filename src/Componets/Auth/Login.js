@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate, redirect } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
 import AccountContext from '../Context/AccountContext';
 import Header from '../Header';
@@ -10,8 +10,8 @@ const Login = () => {
 const navigate = useNavigate()
 const [username, setUsername] = useState("")
 const [password, setPassword] = useState("")
-const [loggedin, setLoggedIn] = useState("")
-const {authenticate, getSession} = useContext(AccountContext)
+
+const {authenticate, getSession, loggedin} = useContext(AccountContext)
 
 
 useEffect(() => {
@@ -29,7 +29,8 @@ const handleLogin = (event) => {
     authenticate(username,password)
     .then(data => {
         console.log("logged in siccessfully", data)
-        setLoggedIn(data)
+        navigate('/InventorySorter')
+        console.log(loggedin)
         
         
     })
@@ -53,10 +54,9 @@ const handleLogin = (event) => {
             <button type='submit' onClick={handleLogin}>Login</button>
         
         </form>  
-        {authenticate.user && (
+        {loggedin && (
             <Link to='/AddUser'>Admin</Link>
         )}
-    
         </>
     );
 };

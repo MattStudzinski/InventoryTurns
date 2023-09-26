@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import AccountContext from "./AccountContext";
 import UserPool from "../Auth/UserPool";
 import { AuthenticationDetails, CognitoUser } from "amazon-cognito-identity-js";
@@ -6,6 +6,7 @@ import { AuthenticationDetails, CognitoUser } from "amazon-cognito-identity-js";
 const AccountState = (props) => {
 
 
+    const [loggedin, setLoggedIn] = useState(false)
 
     const logout = async () => {
         return await new Promise((resolve, reject) => {
@@ -29,6 +30,7 @@ const AccountState = (props) => {
                         reject(err)
                     } else {
                         resolve(session)
+                        
                     }
                 })
             } else {
@@ -69,6 +71,7 @@ const AccountState = (props) => {
                 onSuccess: (data) => {
                     console.log("login successful", data)
                     resolve(data)
+                    setLoggedIn(true)
                 },
                 onFailure: (err) => {
                     console.log("login fialed", err.message)
@@ -83,7 +86,7 @@ const AccountState = (props) => {
     }
 
     return (
-        <AccountContext.Provider value={{signUp, authenticate, getSession, logout}}>
+        <AccountContext.Provider value={{signUp, authenticate, getSession, logout, loggedin}}>
             {props.children}
         </AccountContext.Provider>
     )
