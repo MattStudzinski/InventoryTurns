@@ -3,8 +3,9 @@ import styled from 'styled-components'
 export const PageContaier = styled.div`
 height:100%;
   width:100%;
-  margin:0;
-
+display: flex;
+flex-direction: column;
+align-items: center;
 `
 export const HeaderContainer = styled.div`
 display: flex;

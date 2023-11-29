@@ -1,19 +1,22 @@
 import styled from 'styled-components'
 
 export const ListContainer = styled.div`
-margin: 50px;
+
 width: 100%;
 max-width: 75%;
 padding-left: 0px;
 display: flex;
 align-items: center;
+justify-content: center;
 flex-direction: column;
 border: solid 1px rgba( 0, 0, 0, .3) ;
 box-shadow: 2px 2px 5px rgba (200,200,200, .2);
 border-radius: 10px;
 @media (max-width: 500px) {
-    width: 95%;
+    width: 90%;
     max-width: 100%;
+    
+    
 }
 `
 

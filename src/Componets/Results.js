@@ -39,7 +39,7 @@ const Results = () => {
     console.log(orangeArray)
     console.log(redArray)
     return (
-        <div>
+        <>
             <Header />
             
     <InputContainer>
@@ -125,7 +125,7 @@ const Results = () => {
     </PageContaier>
 
         
-       </div>
+       </>
     );
 };
 

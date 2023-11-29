@@ -8,6 +8,12 @@ transform: translate(-50%, -50%);
 width:400px;
 background-color: white;
 border-radius: 10px;
+@media (max-width: 500px) {
+    width: 90%;
+    max-width: 100%;
+    
+    
+}
 `
 
 export const FormStyle = styled.form`
