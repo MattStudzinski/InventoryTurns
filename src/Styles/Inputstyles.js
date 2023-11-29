@@ -13,6 +13,10 @@ width: 18%;
 min-width: 120px;
 border-radius: 30px;
 box-shadow: 2px 2px 8px rgba(0, 0, 0, .8);
+cursor: pointer;
+&:hover {
+        background: grey;
+    }
 `
 
 export const SelectFile = styled.span `
@@ -23,8 +27,6 @@ font-size: large;
 export const CloudSVG = styled.img`
 height: 37px;
 padding-right: 2px;
-
-
 `
 
 export const FileInput = styled.input`

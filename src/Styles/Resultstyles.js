@@ -5,6 +5,7 @@ export const ListContainer = styled.div`
 width: 100%;
 max-width: 75%;
 padding-left: 0px;
+margin-bottom: 6%;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -33,6 +34,10 @@ border-radius: 20px;
     width: 98%;
     padding: 1px;
 }
+@media (max-width:900px) {
+    width: 98%;
+    padding: 1px;
+}
 `
 
 export const TitleOfResults = styled.div`
@@ -53,6 +58,12 @@ color: green;
     margin-left: -10px;
     visibility: hidden;
 }
+@media (max-width: 900px){
+    width: 1px;
+    font-size: 12px;
+    margin-left: -10px;
+    visibility: hidden;
+}
 `
 export const GreenParName = styled.div`
 padding: 5px;
@@ -61,12 +72,18 @@ color: green;
 @media (max-width: 500px){
     width: 95px;
 }
+@media (max-width: 900px){
+    width: 95px;
+}
 `
 export const GreenParBy = styled.div`
 padding: 5px;
 width: 50px;
 color: green;
 @media (max-width: 500px){
+    width: 35px;
+}
+@media (max-width: 900px){
     width: 35px;
 }
 `
@@ -99,6 +116,12 @@ color: orange;
     margin-left: -10px;
     visibility: hidden;
 }
+@media (max-width: 900px){
+    width: 1px;
+    font-size: 12px;
+    margin-left: -10px;
+    visibility: hidden;
+}
 `
 export const OrangeParName = styled.div`
 padding: 5px;
@@ -107,12 +130,18 @@ color: orange;
 @media (max-width: 500px){
     width: 95px;
 }
+@media (max-width: 900px){
+    width: 95px;
+}
 `
 export const OrangeParBy = styled.div`
 padding: 5px;
 width: 50px;
 color: orange;
 @media (max-width: 500px){
+    width: 35px;
+}
+@media (max-width: 900px){
     width: 35px;
 }
 `
@@ -141,7 +170,14 @@ export const RedParItem = styled.div`
 padding: 5px;
 width: 50px;
 color: red;
+visibility: hi;
 @media (max-width: 500px){
+    width: 1px;
+    font-size: 12px;
+    margin-left: -10px;
+    visibility: hidden;
+}
+@media (max-width: 900px){
     width: 1px;
     font-size: 12px;
     margin-left: -10px;
@@ -156,12 +192,18 @@ color: red;
 @media (max-width: 500px){
     width: 95px;
 }
+@media (max-width: 900px){
+    width: 95px;
+}
 `
 
 export const RedParBy = styled.div`
 padding: 5px;
 width: 50px;
 color: red;
+@media (max-width: 500px){
+    width: 35px;
+}
 @media (max-width: 500px){
     width: 35px;
 }
@@ -178,6 +220,7 @@ color: red;
     left: 0;
     margin-right: -10px;
 }
+
 `
 
 

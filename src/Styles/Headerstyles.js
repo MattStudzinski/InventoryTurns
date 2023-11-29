@@ -21,9 +21,26 @@ padding-right: 20px;
 font-size: 15px;
 `
 
-export const Logout = styled.button`
+export const Logout = styled.label`
 display: flex;
 align-self:flex-end;
-margin-right: 2%;
-margin-bottom: 3%;
+margin-right: 10px;
+margin-bottom: 8px;
+background: #FF416C;  
+background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C); 
+background: linear-gradient(to right, #FF4B2B, #FF416C); 
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 90px;
+width: 5%;
+max-width: 100px;
+border-radius: 30px;
+cursor: pointer;
+&:hover {
+        background: grey;
+    }
+
+
 `
