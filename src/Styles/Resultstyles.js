@@ -62,7 +62,7 @@ color: green;
     width: 1px;
     font-size: 12px;
     margin-left: -10px;
-    visibility: hidden;
+    
 }
 `
 export const GreenParName = styled.div`
@@ -120,7 +120,7 @@ color: orange;
     width: 1px;
     font-size: 12px;
     margin-left: -10px;
-    visibility: hidden;
+    
 }
 `
 export const OrangeParName = styled.div`
@@ -170,7 +170,7 @@ export const RedParItem = styled.div`
 padding: 5px;
 width: 50px;
 color: red;
-visibility: hi;
+
 @media (max-width: 500px){
     width: 1px;
     font-size: 12px;
@@ -181,7 +181,7 @@ visibility: hi;
     width: 1px;
     font-size: 12px;
     margin-left: -10px;
-    visibility: hidden;
+    
 }
 `
 

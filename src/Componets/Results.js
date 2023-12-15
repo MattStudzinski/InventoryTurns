@@ -65,7 +65,6 @@ const Results = () => {
             {redArray.map((paritem) => {
                 console.log(paritem)
                 return(<ResultsHolder>
-                    <RedParItem>{paritem.PCOM}</RedParItem>
                     <RedParItem>{paritem.PLOC}</RedParItem>
                     <RedParItem>{paritem.PSIZE}</RedParItem>
                     <RedParName>{paritem.PPDESC}</RedParName>
@@ -87,7 +86,6 @@ const Results = () => {
                 console.log(paritem)
                 return(
                 <ResultsHolder>
-                    <OrangeParItem>{paritem.PCOM}</OrangeParItem>
                     <OrangeParItem>{paritem.PLOC}</OrangeParItem>
                     <OrangeParItem>{paritem.PSIZE}</OrangeParItem>
                     <OrangeParName>{paritem.PPDESC}</OrangeParName>
@@ -110,11 +108,9 @@ const Results = () => {
             {greenArray.map((paritem) => {
                 console.log(paritem)
                 return(<ResultsHolder>
-                    <GreenParItem>{paritem.PCOM}</GreenParItem>
-                    <GreenParItem>{paritem.PLOC}</GreenParItem>
                     <GreenParItem>{paritem.PSIZE}</GreenParItem>
                     <GreenParName>{paritem.PPDESC}</GreenParName>
-                    <GreenParBy>{paritem.PUM}</GreenParBy>
+                    <GreenParItem>{paritem.PPROD}</GreenParItem>
                     <GreenParItemNum>{paritem.PUSAGE}</GreenParItemNum>
                     <GreenParItemNum>{paritem.PONHND}</GreenParItemNum>
                     <GreenParItemNum>{paritem.PMVMNT}</GreenParItemNum>
