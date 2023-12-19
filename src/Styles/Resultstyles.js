@@ -5,7 +5,7 @@ export const ListContainer = styled.div`
 width: 100%;
 max-width: 75%;
 padding-left: 0px;
-margin-bottom: 6%;
+margin-bottom: 30px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -16,28 +16,18 @@ border-radius: 10px;
 @media (max-width: 500px) {
     width: 90%;
     max-width: 100%;
-    
-    
 }
 `
 
 export const ResultsHolder = styled.div`
-display: flex;
-width: 90%;
-margin: 15px;
-display: flex;
-align-items: center;
+display: grid;
+padding: 5px;
+width: 98%;
+grid-template-columns: 40% 35% 25%;
+grid-template-rows: 80px;
 background-color: rgba(200,200,200, .3);
-padding: 10px;
+margin: 7px;
 border-radius: 20px;
-@media (max-width:500px) {
-    width: 98%;
-    padding: 1px;
-}
-@media (max-width:900px) {
-    width: 98%;
-    padding: 1px;
-}
 `
 
 export const TitleOfResults = styled.div`
@@ -50,31 +40,21 @@ font-size: 17px;
 
 export const GreenParItem = styled.div`
 padding: 5px;
-width: 50px;
+
+grid-column: 2;
 color: green;
-@media (max-width: 500px){
-    width: 1px;
-    font-size: 12px;
-    margin-left: -10px;
-    visibility: hidden;
-}
-@media (max-width: 900px){
-    width: 1px;
-    font-size: 12px;
-    margin-left: -10px;
-    
-}
+justify-self: center;
+align-self: center;
+
 `
 export const GreenParName = styled.div`
 padding: 5px;
-width: 30%;
+justify-self: center;
+align-self: center;
 color: green;
-@media (max-width: 500px){
-    width: 95px;
-}
-@media (max-width: 900px){
-    width: 95px;
-}
+grid-column: 1;
+justify-self: stretch;
+
 `
 export const GreenParBy = styled.div`
 padding: 5px;
@@ -101,6 +81,16 @@ color: green;
 }
 `
 
+export const GreenParItemTurnNumber = styled.div`
+padding:5px 10px;
+color: green;
+grid-column: 3;
+justify-self: end;
+align-self: center;
+
+
+`
+
 
 
 
@@ -109,30 +99,19 @@ color: green;
 export const OrangeParItem = styled.div`
 padding: 5px;
 width: 50px;
+grid-column: 2;
 color: orange;
-@media (max-width: 500px){
-    width: 1px;
-    font-size: 12px;
-    margin-left: -10px;
-    visibility: hidden;
-}
-@media (max-width: 900px){
-    width: 1px;
-    font-size: 12px;
-    margin-left: -10px;
-    
-}
+justify-self: center;
+align-self: center;
 `
 export const OrangeParName = styled.div`
 padding: 5px;
-width: 30%;
+justify-self: center;
+align-self: center;
 color: orange;
-@media (max-width: 500px){
-    width: 95px;
-}
-@media (max-width: 900px){
-    width: 95px;
-}
+grid-column: 1;
+justify-self: stretch;
+
 `
 export const OrangeParBy = styled.div`
 padding: 5px;
@@ -159,6 +138,15 @@ color: orange;
 }
 `
 
+export const OrangeParItemTurnNumber = styled.div`
+padding:5px;
+color: orange;
+grid-column: 3;
+justify-self: center;
+align-self: center;
+
+`
+
 
 
 
@@ -169,32 +157,22 @@ color: orange;
 export const RedParItem = styled.div`
 padding: 5px;
 width: 50px;
+grid-column: 2;
 color: red;
+justify-self: center;
+align-self: center;
 
-@media (max-width: 500px){
-    width: 1px;
-    font-size: 12px;
-    margin-left: -10px;
-    visibility: hidden;
-}
-@media (max-width: 900px){
-    width: 1px;
-    font-size: 12px;
-    margin-left: -10px;
-    
-}
+
 `
 
 export const RedParName = styled.div`
 padding: 5px;
-width: 30%;
+justify-self: center;
+align-self: center;
 color: red;
-@media (max-width: 500px){
-    width: 95px;
-}
-@media (max-width: 900px){
-    width: 95px;
-}
+grid-column: 1;
+justify-self: stretch;
+
 `
 
 export const RedParBy = styled.div`
@@ -216,10 +194,20 @@ position: relative;
 left: 7%;
 color: red;
 @media (max-width: 500px){
+    visibility: hidden;
     width: 70px;
     left: 0;
     margin-right: -10px;
 }
+
+`
+
+export const RedParItemTurnNumber = styled.div`
+padding:5px;
+color: red;
+grid-column: 3;
+justify-self: center;
+align-self: center;
 
 `
 
