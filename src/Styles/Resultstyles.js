@@ -23,7 +23,7 @@ export const ResultsHolder = styled.div`
 display: grid;
 padding: 5px;
 width: 98%;
-grid-template-columns: 40% 35% 25%;
+grid-template-columns: 35% 35% 5% 25%;
 grid-template-rows: 80px;
 background-color: rgba(200,200,200, .3);
 margin: 7px;
@@ -68,23 +68,16 @@ color: green;
 }
 `
 export const GreenParItemNum = styled.div `
-padding:5px;
-width: 1%;
-margin-right: auto;
-position: relative;
-left: 7%;
+grid-column: 3;
+justify-self: center;
+align-self: center;
 color: green;
-@media (max-width: 500px){
-    width: 70px;
-    left: 0;
-    margin-right: -10px;
-}
 `
 
 export const GreenParItemTurnNumber = styled.div`
 padding:5px 10px;
 color: green;
-grid-column: 3;
+grid-column: 4;
 justify-self: end;
 align-self: center;
 
@@ -125,23 +118,16 @@ color: orange;
 }
 `
 export const OrangeParItemNum = styled.div `
-padding:5px;
-width: 1%;
-margin-right: auto;
-position: relative;
-left: 7%;
+grid-column: 3;
+justify-self: center;
+align-self: center;
 color: orange;
-@media (max-width: 500px){
-    width: 70px;
-    left: 0;
-    margin-right: -10px;
-}
 `
 
 export const OrangeParItemTurnNumber = styled.div`
 padding:5px;
 color: orange;
-grid-column: 3;
+grid-column: 4;
 justify-self: center;
 align-self: center;
 
@@ -187,25 +173,16 @@ color: red;
 }
 `
 export const RedParItemNum = styled.div `
-padding:5px;
-width: 1%;
-margin-right: auto;
-position: relative;
-left: 7%;
+grid-column: 3;
+justify-self: center;
+align-self: center;
 color: red;
-@media (max-width: 500px){
-    visibility: hidden;
-    width: 70px;
-    left: 0;
-    margin-right: -10px;
-}
-
 `
 
 export const RedParItemTurnNumber = styled.div`
 padding:5px;
 color: red;
-grid-column: 3;
+grid-column: 4;
 justify-self: center;
 align-self: center;
 

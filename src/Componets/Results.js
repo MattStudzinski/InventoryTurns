@@ -31,9 +31,11 @@ const Results = () => {
     for (let i = 0; i < data.length; i++) {
         if (data[i].PUSAGE === 0 || data[i].PMVMNT <= .19) {
             redArray.push(data[i])
-        } else if (data[i].PMVMNT <= .3){
+        } else if (data[i].PMVMNT <= 4 && data[i].PUSAGE <= 10) {
+            redArray.push(data[i])
+        }else if (data[i].PMVMNT <= .3){
             orangeArray.push(data[i])
-        } else{ greenArray.push(data[i])}
+        }  else{ greenArray.push(data[i])}
     }
     console.log(greenArray)
     console.log(orangeArray)
@@ -67,6 +69,7 @@ const Results = () => {
                 return(<ResultsHolder>
                     <RedParName>{paritem.PPDESC}</RedParName>
                     <RedParItem>{paritem.PPROD}</RedParItem>
+                    <RedParItemNum>{paritem.PONHND}</RedParItemNum>
                     <RedParItemTurnNumber>{paritem.PMVMNT}</RedParItemTurnNumber>
                     </ResultsHolder>
                 )
@@ -84,6 +87,7 @@ const Results = () => {
                 <ResultsHolder>
                     <OrangeParName>{paritem.PPDESC}</OrangeParName>
                     <OrangeParItem>{paritem.PPROD}</OrangeParItem>
+                    <OrangeParItemNum>{paritem.PONHND}</OrangeParItemNum>
                     <OrangeParItemTurnNumber>{paritem.PMVMNT}</OrangeParItemTurnNumber>
                     </ResultsHolder>
                     
@@ -102,6 +106,7 @@ const Results = () => {
                 return(<ResultsHolder>
                     <GreenParName>{paritem.PPDESC}</GreenParName>
                     <GreenParItem>{paritem.PPROD}</GreenParItem>
+                    <GreenParItemNum>{paritem.PONHND}</GreenParItemNum>
                     <GreenParItemTurnNumber>{paritem.PMVMNT}</GreenParItemTurnNumber>
                     </ResultsHolder>
                 )

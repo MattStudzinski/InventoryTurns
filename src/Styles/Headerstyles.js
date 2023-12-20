@@ -34,7 +34,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 height: 90px;
-width: 5%;
+width: 60px;
 max-width: 100px;
 border-radius: 30px;
 cursor: pointer;
