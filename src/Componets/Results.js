@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cloud from './../assets/cloud.svg'
-import { GreenParItem, ResultsHolder, GreenParBy, OrangeParItemNum, OrangeParBy, OrangeParItem, RedParBy, RedParItem, RedParItemNum, GreenParItemNum,RedParName, OrangeParName, GreenParName, ListContainer, TitleOfResults, RedParItemTurnNumber, GreenParItemTurnNumber, OrangeParItemTurnNumber } from '../Styles/Resultstyles';
+import { GreenParItem, ResultsHolder, GreenParBy, OrangeParItemNum, OrangeParBy, OrangeParItem, RedParBy, RedParItem, RedParItemNum, GreenParItemNum,RedParName, OrangeParName, GreenParName, ListContainer, TitleOfResults, RedParItemTurnNumber, GreenParItemTurnNumber, OrangeParItemTurnNumber, ParnameNumberContainer, Description} from '../Styles/Resultstyles';
 import { InputContainer, FileNameContainer, ResultsTitleContainer, PageContaier } from '../Styles/Containerstyles';
 import { InputLabel, CloudSVG, SelectFile, FileInput } from '../Styles/Inputstyles';
 import XLSX from 'xlsx'
@@ -67,10 +67,12 @@ const Results = () => {
             {redArray.map((paritem) => {
                 console.log(paritem)
                 return(<ResultsHolder>
-                    <RedParName>{paritem.PPDESC}</RedParName>
-                    <RedParItem>{paritem.PPROD}</RedParItem>
-                    <RedParItemNum>{paritem.PONHND}</RedParItemNum>
-                    <RedParItemTurnNumber>{paritem.PMVMNT}</RedParItemTurnNumber>
+                    <ParnameNumberContainer>
+                        <RedParName>{paritem.PPDESC}</RedParName>
+                        <RedParItem>{paritem.PPROD}</RedParItem>
+                    </ParnameNumberContainer>
+                    <RedParItemNum>{paritem.PONHND}<Description>On Hand</Description></RedParItemNum>
+                    <RedParItemTurnNumber>{paritem.PMVMNT}<Description>Movement</Description></RedParItemTurnNumber>
                     </ResultsHolder>
                 )
             })}
@@ -85,10 +87,12 @@ const Results = () => {
                 console.log(paritem)
                 return(
                 <ResultsHolder>
-                    <OrangeParName>{paritem.PPDESC}</OrangeParName>
-                    <OrangeParItem>{paritem.PPROD}</OrangeParItem>
-                    <OrangeParItemNum>{paritem.PONHND}</OrangeParItemNum>
-                    <OrangeParItemTurnNumber>{paritem.PMVMNT}</OrangeParItemTurnNumber>
+                    <ParnameNumberContainer>
+                        <OrangeParName>{paritem.PPDESC}</OrangeParName>
+                        <OrangeParItem>{paritem.PPROD}</OrangeParItem>
+                    </ParnameNumberContainer>
+                    <OrangeParItemNum>{paritem.PONHND}<Description>On Hand</Description></OrangeParItemNum>
+                    <OrangeParItemTurnNumber>{paritem.PMVMNT}<Description>Movement</Description></OrangeParItemTurnNumber>
                     </ResultsHolder>
                     
                 )
@@ -104,10 +108,12 @@ const Results = () => {
             {greenArray.map((paritem) => {
                 console.log(paritem)
                 return(<ResultsHolder>
-                    <GreenParName>{paritem.PPDESC}</GreenParName>
-                    <GreenParItem>{paritem.PPROD}</GreenParItem>
-                    <GreenParItemNum>{paritem.PONHND}</GreenParItemNum>
-                    <GreenParItemTurnNumber>{paritem.PMVMNT}</GreenParItemTurnNumber>
+                    <ParnameNumberContainer>
+                        <GreenParName>{paritem.PPDESC}</GreenParName>
+                        <GreenParItem>{paritem.PPROD}</GreenParItem>
+                    </ParnameNumberContainer>
+                    <GreenParItemNum>{paritem.PONHND}<Description>On Hand</Description></GreenParItemNum>
+                    <GreenParItemTurnNumber>{paritem.PMVMNT}<Description>Movement</Description></GreenParItemTurnNumber>
                     </ResultsHolder>
                 )
             })}

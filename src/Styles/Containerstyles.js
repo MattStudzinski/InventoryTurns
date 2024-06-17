@@ -33,6 +33,7 @@ export const ResultsTitleContainer = styled.div`
 width: 100%;
 margin-left: 10%;
 display: flex;
+flex-direction: column;
 justify-content: flex-start;
 `
 

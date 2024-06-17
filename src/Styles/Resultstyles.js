@@ -20,13 +20,13 @@ border-radius: 10px;
 `
 
 export const ResultsHolder = styled.div`
-display: grid;
-padding: 5px;
+display: flex;
 width: 98%;
-grid-template-columns: 35% 35% 5% 25%;
-grid-template-rows: 80px;
+margin: .5rem;
+height: 4.5rem;
+box-shadow: .1rem .1rem  .5rem rgba(0,0,0,.4);
 background-color: rgba(200,200,200, .3);
-margin: 7px;
+
 border-radius: 20px;
 `
 
@@ -37,23 +37,27 @@ margin-right: 18%;
 font-size: 17px;
 `
 
+export const ParnameNumberContainer = styled.div `
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: 70%;
+`
+
+export const Description = styled.p `
+margin: 0;
+font-size: .5rem;
+`
+
 
 export const GreenParItem = styled.div`
-padding: 5px;
-
-grid-column: 2;
-color: green;
-justify-self: center;
-align-self: center;
+margin-left: 15px;
+color: grey;
 
 `
 export const GreenParName = styled.div`
-padding: 5px;
-justify-self: center;
-align-self: center;
+margin: 0 0 2px 10px;
 color: green;
-grid-column: 1;
-justify-self: stretch;
 
 `
 export const GreenParBy = styled.div`
@@ -90,20 +94,13 @@ align-self: center;
 
 
 export const OrangeParItem = styled.div`
-padding: 5px;
-width: 50px;
-grid-column: 2;
-color: orange;
-justify-self: center;
-align-self: center;
+margin-left: 15px;
+color: grey;
 `
 export const OrangeParName = styled.div`
-padding: 5px;
-justify-self: center;
-align-self: center;
+margin: 0 0 2px 10px;
 color: orange;
-grid-column: 1;
-justify-self: stretch;
+
 
 `
 export const OrangeParBy = styled.div`
@@ -141,23 +138,14 @@ align-self: center;
 
 
 export const RedParItem = styled.div`
-padding: 5px;
-width: 50px;
-grid-column: 2;
-color: red;
-justify-self: center;
-align-self: center;
-
+margin-left: 15px;
+color: grey;
 
 `
 
 export const RedParName = styled.div`
-padding: 5px;
-justify-self: center;
-align-self: center;
+margin: 0 0 2px 10px;
 color: red;
-grid-column: 1;
-justify-self: stretch;
 
 `
 
@@ -173,10 +161,11 @@ color: red;
 }
 `
 export const RedParItemNum = styled.div `
-grid-column: 3;
 justify-self: center;
 align-self: center;
+width: 15%;
 color: red;
+margin-left: 10px;
 `
 
 export const RedParItemTurnNumber = styled.div`
