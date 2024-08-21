@@ -53,12 +53,10 @@ font-size: .5rem;
 export const GreenParItem = styled.div`
 margin-left: 15px;
 color: grey;
-
 `
 export const GreenParName = styled.div`
 margin: 0 0 2px 10px;
 color: green;
-
 `
 export const GreenParBy = styled.div`
 padding: 5px;
@@ -84,8 +82,6 @@ color: green;
 grid-column: 4;
 justify-self: end;
 align-self: center;
-
-
 `
 
 
@@ -100,8 +96,6 @@ color: grey;
 export const OrangeParName = styled.div`
 margin: 0 0 2px 10px;
 color: orange;
-
-
 `
 export const OrangeParBy = styled.div`
 padding: 5px;
@@ -127,7 +121,6 @@ color: orange;
 grid-column: 4;
 justify-self: center;
 align-self: center;
-
 `
 
 
@@ -140,13 +133,11 @@ align-self: center;
 export const RedParItem = styled.div`
 margin-left: 15px;
 color: grey;
-
 `
 
 export const RedParName = styled.div`
 margin: 0 0 2px 10px;
 color: red;
-
 `
 
 export const RedParBy = styled.div`
