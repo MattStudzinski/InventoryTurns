@@ -14,11 +14,29 @@ const Results = () => {
     const handleFile = async (e) => {
         const file = e.target.files[0]
         setFileName(file.name)
+
         const data = await file.arrayBuffer();
         const workbook = XLSX.read(data)
         const worksheet = workbook.Sheets[workbook.SheetNames[0]]
         const jsonData = XLSX.utils.sheet_to_json(worksheet)
         setData(jsonData)
+
+        try {
+            const response = await fetch('https://localhost:5002/api/products', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(jsonData)
+            })
+
+            if (response.ok) {
+                console.log('Data successfully sent to backend');
+            } else {
+                console.log('Failed to send data to backend');
+            }
+
+        } catch (error) {
+            console.error('Error sending data to backend:', error);
+        }
         
         
     }
