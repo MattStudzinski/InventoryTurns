@@ -3,7 +3,7 @@ import cloud from './../assets/cloud.svg'
 import { GreenParItem, ResultsHolder, GreenParBy, OrangeParItemNum, OrangeParBy, OrangeParItem, RedParBy, RedParItem, RedParItemNum, GreenParItemNum,RedParName, OrangeParName, GreenParName, ListContainer, TitleOfResults, RedParItemTurnNumber, GreenParItemTurnNumber, OrangeParItemTurnNumber, ParnameNumberContainer, Description} from '../Styles/Resultstyles';
 import { InputContainer, FileNameContainer, ResultsTitleContainer, PageContaier } from '../Styles/Containerstyles';
 import { InputLabel, CloudSVG, SelectFile, FileInput } from '../Styles/Inputstyles';
-import XLSX from 'xlsx'
+import XLSX, { read } from 'xlsx'
 import Header from './Header';
 
 const Results = () => {
@@ -13,7 +13,10 @@ const Results = () => {
 
     const handleFile = async (e) => {
         const file = e.target.files[0]
-        setFileName(file.name)
+        const fileName = file.name
+        setFileName(fileName)
+
+        const uploadDate = new Date().toISOString()
 
         const data = await file.arrayBuffer();
         const workbook = XLSX.read(data)
@@ -21,11 +24,17 @@ const Results = () => {
         const jsonData = XLSX.utils.sheet_to_json(worksheet)
         setData(jsonData)
 
+        const filePaylaod = {
+            fileName: fileName,
+            products: jsonData,
+            uploadDate: new Date()
+        }
+
         try {
             const response = await fetch('http://localhost:5002/api/products', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(jsonData)
+                body: JSON.stringify(filePaylaod)
             })
 
             if (response.ok) {
@@ -42,22 +51,42 @@ const Results = () => {
     }
     console.log(`this is data ${data}`)
 
-    const greenArray = []
-    const orangeArray = []
-    const redArray = []
-    
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].PUSAGE === 0 || data[i].PMVMNT <= .19) {
-            redArray.push(data[i])
-        } else if (data[i].PMVMNT <= 4 && data[i].PUSAGE <= 10) {
-            redArray.push(data[i])
-        }else if (data[i].PMVMNT <= .3){
-            orangeArray.push(data[i])
-        }  else{ greenArray.push(data[i])}
+const greenArray = [];
+const orangeArray = [];
+const redArray = [];
+
+const lowQuantityThreshold = 4
+const lowUsageThreshold = 2
+const lowMovementThreshold = 10
+const moderateMovementThreshold = 50
+
+for (let i = 0; i < data.length; i++) {
+    const onHand = data[i].PONHND || 0
+    const usage = data[i].PUSAGE || 0 
+    const movement = data[i].PMVMNT || 0 
+
+    const normalizedMovement = (usage / (onHand ||1 )) * 100
+
+    const isLowQuantity = onHand <= lowQuantityThreshold
+    const isLowUsage = usage <= lowUsageThreshold
+
+    if(isLowQuantity && isLowUsage) {
+        redArray.push(data[i])
+    } else if (normalizedMovement < lowMovementThreshold) {
+        redArray.push(data[i])
+    } else if (normalizedMovement >= lowMovementThreshold && normalizedMovement < moderateMovementThreshold) {
+        orangeArray.push(data[i])
+    } else {
+        greenArray.push(data[i])
     }
-    console.log(greenArray)
-    console.log(orangeArray)
-    console.log(redArray)
+
+}
+
+console.log('Green List:', greenArray);
+console.log('Orange List:', orangeArray);
+console.log('Red List:', redArray);
+
+
     return (
         <>
             <Header />
