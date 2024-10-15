@@ -54,37 +54,91 @@ const Results = () => {
 const greenArray = [];
 const orangeArray = [];
 const redArray = [];
+const duplicateArray = []
 
 const lowQuantityThreshold = 4
 const lowUsageThreshold = 2
 const lowMovementThreshold = 10
 const moderateMovementThreshold = 50
 
+const groupedItems = {}
+
 for (let i = 0; i < data.length; i++) {
-    const onHand = data[i].PONHND || 0
-    const usage = data[i].PUSAGE || 0 
-    const movement = data[i].PMVMNT || 0 
+    const productCode = data[i].PPROD
+    const item = data[i]
 
-    const normalizedMovement = (usage / (onHand ||1 )) * 100
-
-    const isLowQuantity = onHand <= lowQuantityThreshold
-    const isLowUsage = usage <= lowUsageThreshold
-
-    if(isLowQuantity && isLowUsage) {
-        redArray.push(data[i])
-    } else if (normalizedMovement < lowMovementThreshold) {
-        redArray.push(data[i])
-    } else if (normalizedMovement >= lowMovementThreshold && normalizedMovement < moderateMovementThreshold) {
-        orangeArray.push(data[i])
-    } else {
-        greenArray.push(data[i])
+    if (!groupedItems[productCode]) {
+        groupedItems[productCode] = []
     }
-
+    groupedItems[productCode].push(item)
 }
 
-console.log('Green List:', greenArray);
-console.log('Orange List:', orangeArray);
-console.log('Red List:', redArray);
+for (const productCode in groupedItems) {
+    const items = groupedItems[productCode]
+
+    if (items.length === 1) {
+        const onHand = items[0].PONHND || 0
+        const usage = items[0].PUSAGE || 0
+        const movement = items[0].PMVMNT || 0
+    
+        
+        const normalizedMovement = (usage / (onHand || 1)) * 100
+        const isLowQuantity = onHand <= lowQuantityThreshold
+        const isLowUsage = usage <= lowUsageThreshold
+        
+        if (isLowQuantity && isLowUsage) {
+            redArray.push(items[0])
+        } else if (normalizedMovement < lowMovementThreshold) {
+            redArray.push(items[0])
+        } else if (normalizedMovement >= lowMovementThreshold && normalizedMovement < moderateMovementThreshold) {
+            orangeArray.push(items[0])
+        } else {
+            greenArray.push(items[0])
+        }
+        continue;
+    }
+
+    
+    let duplicateItem = items[0]; 
+
+    for (let i = 1; i < items.length; i++) {
+        if (items[i].PUSAGE < duplicateItem.PUSAGE) {
+            duplicateItem = items[i]
+        }
+    }
+
+    
+    duplicateArray.push(duplicateItem)
+
+    
+    for (let i = 0; i < items.length; i++) {
+        if (items[i] === duplicateItem) continue
+
+        const onHand = items[i].PONHND || 0
+        const usage = items[i].PUSAGE || 0
+        const movement = items[i].PMVMNT || 0
+
+        const normalizedMovement = (usage / (onHand || 1)) * 100;
+        const isLowQuantity = onHand <= lowQuantityThreshold;
+        const isLowUsage = usage <= lowUsageThreshold
+
+        if (isLowQuantity && isLowUsage) {
+            redArray.push(items[i])
+        } else if (normalizedMovement < lowMovementThreshold) {
+            redArray.push(items[i])
+        } else if (normalizedMovement >= lowMovementThreshold && normalizedMovement < moderateMovementThreshold) {
+            orangeArray.push(items[i])
+        } else {
+            greenArray.push(items[i])
+        }
+    }
+}
+
+
+console.log('Green List:', greenArray)
+console.log('Orange List:', orangeArray)
+console.log('Red List:', redArray)
+console.log('duplicate list:', duplicateArray)
 
 
     return (
