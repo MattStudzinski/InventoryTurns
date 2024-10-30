@@ -169,3 +169,40 @@ align-self: center;
 `
 
 
+export const DupParItem = styled.div`
+margin-left: 15px;
+color: black;
+`
+
+export const DupParName = styled.div`
+margin: 0 0 2px 10px;
+color: black;
+`
+
+export const DupParBy = styled.div`
+padding: 5px;
+width: 50px;
+color: black;
+@media (max-width: 500px){
+    width: 35px;
+}
+@media (max-width: 500px){
+    width: 35px;
+}
+`
+export const DupParItemNum = styled.div `
+justify-self: center;
+align-self: center;
+width: 15%;
+color: black;
+margin-left: 10px;
+`
+
+export const DupParItemTurnNumber = styled.div`
+padding:5px;
+color: black;
+grid-column: 4;
+justify-self: center;
+align-self: center;
+
+`
